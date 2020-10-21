@@ -24,7 +24,7 @@ const createExtra = (index, dirName) => {
             createMongo(dirName)
         },
         3:()=>{
-
+            createSha256(dirName)
         },
         4:()=>{
 
@@ -48,6 +48,11 @@ const createEslint = dirName => {
 }
 
 const createMongo = dirName => {
-    createDir(dirName, '/libraries/databases', createFile.bind(this, dirName,'/libraries/databases/mongo.js', '../templates/mongo'))
+    createDir(dirName, 'libraries/databases', createFile.bind(this, dirName,'/libraries/databases/mongo.js', '../templates/mongo'))
     execCommand(dirName, 'npm i mongodb', 'installing mongodb')
+}
+
+const createSha256 = dirName => {
+    createDir(dirName, 'libraries/security', createFile.bind(this, dirName,'/libraries/security/sha256.js', '../templates/sha256'))
+    execCommand(dirName, 'npm i js-sha256', 'installing sha256')
 }
