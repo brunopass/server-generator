@@ -1,0 +1,19 @@
+{
+  "name": "create-express-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bin": {
+    "create-express-app": "./bin/global.js"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "keypair": "^1.0.1"
+  }
+}
