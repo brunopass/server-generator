@@ -1,6 +1,6 @@
 const { createDir, createFile, execCommand } = require("./functions")
 
-const commands = ['--jwt','--eslint', '--mongo', '--sha256', '--aes256', '--rsa']
+const commands = ['--jwt','--eslint', '--mongo', '--sha256', '--aes256']
 
 const addExtra = (dirName,args) => {
     for(i in args){
@@ -28,9 +28,6 @@ const createExtra = (index, dirName) => {
         },
         4:()=>{
 
-        },
-        5:()=>{
-
         }
     }
 
@@ -40,6 +37,7 @@ const createExtra = (index, dirName) => {
 const createJwt = dirName => {
     createDir(dirName, 'libraries/security', createFile.bind(this, dirName,'/libraries/security/jwt.js', '../templates/jwt'))
     execCommand(dirName, 'npm i jsonwebtoken', 'installing jwt')
+    createDir(dirName,'keys', createFile.bind(this,dirName, '/keys/keys.json', '../templates/keys.js'))
 }
 
 const createEslint = dirName => {

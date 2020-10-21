@@ -14,11 +14,10 @@ const execution = (dirName, args) => {
     createDir(dirName,'controllers',createSubDir.bind(this, dirName,'controllers',methods))
     createDir(dirName,'services')
     createDir(dirName,'libraries')
-    createDir(dirName,'keys', createFile.bind(this,dirName, '/keys/keys.json', '../templates/keys.js'))
     createDir(dirName,'tests')
-    createDir(dirName,'utils/middlewares', createFile.bind(this, dirName,'index.js', '../templates/index'))
+    createDir(dirName,'utils/middlewares')
     
-    fileDependents(dirName)
+    fileDependents(dirName,args)
     execCommand(dirName,'npm init -y','initializing project')
     execCommand(dirName,'npm git init','initializing git')
     execCommand(dirName,'npm i express helmet morgan cors dotenv cookie-parser status-parser','installing dependencies')

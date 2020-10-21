@@ -25,11 +25,12 @@ const createFile = async(dirName,name,from,val) => {
     })
 }
 
-const fileDependents = dirName => setTimeout( async() =>{
+const fileDependents = (dirName,args) => setTimeout( async() =>{
     console.log('Creating files')
-    createFile(dirName,'.env', '../templates/env')
+    createFile(dirName,'.env', '../templates/env', args)
+    createFile(dirName,'index.js', '../templates/index')
     createFile(dirName, '.gitignore', '../templates/gitignore')
-    createFile(dirName,'config.js', '../templates/config')
+    createFile(dirName,'config.js', '../templates/config', args)
     for(i in methods){
         await createFile(dirName,`controllers/${methods[i]}.js`, '../templates/route', `${methods[i].toLowerCase()}`)
     }
